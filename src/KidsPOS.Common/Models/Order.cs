@@ -1,4 +1,4 @@
-﻿namespace KidsPOS.Common.Enums
+﻿namespace KidsPOS.Common.Models
 {
     public class Order
     {
