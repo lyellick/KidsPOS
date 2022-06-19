@@ -7,7 +7,8 @@ namespace KidsPOS.Common.Context
     public class KidsPOSContext : DbContext
     {
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<Order> Orders  { get; set; }
+        public virtual DbSet<Receipt> Receipts  { get; set; }
+        public virtual DbSet<ReceiptItem> ReceiptItems { get; set; }
 
         protected KidsPOSContext()
         {
