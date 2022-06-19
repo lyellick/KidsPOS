@@ -1,10 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using KidsPOS.Common.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace KidsPOS.Common.Context
 {
     public class KidsPOSContext : DbContext
     {
+        public virtual DbSet<Product> Users { get; set; }
+
         protected KidsPOSContext()
         {
         }
