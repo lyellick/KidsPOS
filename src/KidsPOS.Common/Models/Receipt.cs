@@ -6,7 +6,7 @@
 
         public DateTimeOffset Created { get; set; }
 
-        public Guid OrderGuid { get; set; }
+        public Guid ReceiptGuid { get; set; }
 
         public ICollection<ReceiptItem> ReceiptItems { get; set; }
     }

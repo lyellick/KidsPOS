@@ -14,7 +14,11 @@ namespace KidsPOS.Common.Models
 
         public decimal Price { get; set; }
 
+        public int Quantity { get; set; }
+
         public string Image { get; set; }
+
+        public Guid ProductGuid { get; set; }
 
         public ICollection<ReceiptItem> ReceiptItems { get; set; }
     }
