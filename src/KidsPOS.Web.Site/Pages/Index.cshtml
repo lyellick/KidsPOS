@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewBag.Title = $"Home";
+    Product[] products = Model.Products;
+}
+
+<div class="row">
+    <div class="col-8">
+        <div>
+            @foreach (Product product in products)
+            {
+                <img src="@product.Image" />
+            }
+        </div>
+    </div>
+    <div class="col-4">col-4</div>
+</div>
+
+@* Javascript *@
+@section PageScript {
+    <script>
+
+    </script>
+}

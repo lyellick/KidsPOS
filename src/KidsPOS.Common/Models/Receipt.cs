@@ -8,6 +8,6 @@
 
         public Guid ReceiptGuid { get; set; }
 
-        public ICollection<ReceiptItem> ReceiptItems { get; set; }
+        public virtual ICollection<ReceiptItem> ReceiptItems { get; set; }
     }
 }

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @* Meta *@
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    @* Title *@
+    <title>Kids Point of Sale - @ViewBag.Title</title>
+
+    @* Favicon *@
+    <link rel="icon" type="image/svg+xml" href="~/assets/pos-light.svg" sizes="16x16 32x32 64x64" />
+
+    @* StyleSheets *@
+    <link rel="stylesheet" href="~/thirdparty/bootstrap/v5.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/site/global.min.css" />
+
+    @* Global site tag (gtag.js) - Google Analytics *@
+</head>
+<body>
+    @* Main Content *@
+    <main>
+        @RenderBody()
+    </main>
+
+    @* Alert *@
+
+    @* Javascript *@
+    <script type="text/javascript" src="~/thirdparty/bootstrap/v5.2.0/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="~/site/global.js"></script>
+
+    @* Targeted Javascript *@
+    @RenderSection(name: "PageScript", required: false)
+</body>
+</html>

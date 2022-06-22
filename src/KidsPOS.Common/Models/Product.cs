@@ -20,6 +20,6 @@ namespace KidsPOS.Common.Models
 
         public Guid ProductGuid { get; set; }
 
-        public ICollection<ReceiptItem> ReceiptItems { get; set; }
+        public virtual ICollection<ReceiptItem> ReceiptItems { get; set; }
     }
 }
