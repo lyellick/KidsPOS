@@ -10,6 +10,7 @@
         Frozen,
         Meat,
         Produce,
+        Fruit,
         Cleaners,
         Toiletries,
         Other
