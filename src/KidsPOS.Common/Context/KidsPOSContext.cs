@@ -117,7 +117,7 @@ namespace KidsPOS.Common.Context
                     Category = Categories.Canned,
                     Price = 4.88,
                     Quantity = 0,
-                    Image = "https://i5.walmartimages.com/asr/244a77a1-6754-4706-9cbf-fe6977930ef7.4faef0eb4936c9b49537103fc7341b53.jpeg",
+                    Image = "https://www.meijer.com/content/dam/meijer/product/0007/80/0003/38/0007800003389_1_A8C1_0600.png",
                     ProductGuid = Guid.NewGuid()
                 },
                 new Product()

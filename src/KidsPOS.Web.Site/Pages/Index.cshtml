@@ -8,12 +8,12 @@
 <div class="d-flex flex-grow-1 flex-column h-100 overflow-hidden p-3">
     <div class="d-flex flex-grow-1 flex-row h-100">
         <div class="d-flex flex-grow-1 flex-column h-100 overflow-hidden me-3">
-            <div class="d-flex p-2 fs-1">Inventory</div>
-            <div id="products" class="h-100 overflow-auto">
+            <div class="d-flex py-2 px-3 fs-1">Products</div>
+            <div id="products" class="h-100 overflow-auto border border-secondary rounded">
                 <div class="d-flex flex-wrap justify-content-center">
                     @foreach (Product product in products)
                     {
-                        <div id="@product.ProductGuid" class="product border rounded shadow p-4 m-4" name="@product.Name" price="@product.Price" category="@product.Category">
+                        <div id="@product.ProductGuid" class="product p-4 m-4" name="@product.Name" price="@product.Price" category="@product.Category">
                             <img width="164" height="164" src="@product.Image" />
                             <div class="text-center fs-4 fw-bold">@product.Name</div>
                             <div class="text-center fs-4 fst-italic">$@product.Price</div>
@@ -22,17 +22,16 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex flex-grow-1 flex-column h-100 overflow-hidden me-3 min-width-lg max-width-lg">
+        <div class="d-flex flex-grow-1 flex-column h-100 overflow-hidden min-width-lg max-width-lg">
             <div class="d-flex flex-grow-1 flex-column h-100 overflow-hidden mb-3">
-                <div class="d-flex flex-shrink-0 p-2 fs-1">Order</div>
-                <div id="order" class="h-100 overflow-auto">
-                </div>
+                <div class="d-flex flex-shrink-0 py-2 px-3 fs-1">Order</div>
+                <div id="order" class="h-100 overflow-auto border border-secondary p-3 rounded"></div>
             </div>
             <div class="d-grid">
-                <div class="btn btn-lg btn-primary py-4 fs-3 d-flex align-items-center justify-content-center">
+                <button id="checkout" class="btn btn-lg btn-primary py-4 fs-3 d-flex align-items-center justify-content-center">
                     <div>Check Out</div>
                     <div id="total" class="ms-3">$0.00</div>
-                </div>
+                </button>
             </div>
         </div>
     </div>
@@ -41,6 +40,18 @@
 @* Javascript *@
 @section PageScript {
     <script>
+        document.getElementById('checkout').addEventListener('click', function(event) {
+            if (document.getElementById('total').innerHTML !== '$0.00')
+                overlay(true);
+        });
+
+        document.querySelector('.overlay').addEventListener('click', function(event) {
+            document.getElementById('order').innerHTML = '';
+            document.getElementById('total').innerHTML = `$0.00`;
+
+            overlay(false);
+        });
+
         document.querySelectorAll('.product').forEach(function(product) {
             product.addEventListener('click', function(event) {
                 var item = {
@@ -69,6 +80,10 @@
                 total += price;
             });
             document.getElementById('total').innerHTML = `$${total.toFixed(2)}`;
+        }
+
+        function overlay(show) {
+            show ? document.querySelector('.overlay').classList.add('show') : document.querySelector('.overlay').classList.remove('show');
         }
     </script>
 }
