@@ -19,8 +19,10 @@
 </head>
 <body>
     @* Main Content *@
-    <main>
-        @RenderBody()
+    <main class="w-100 h-100 overflow-auto">
+        <div class="d-flex flex-column h-100">
+            @RenderBody()
+        </div>
     </main>
 
     @* Alert *@

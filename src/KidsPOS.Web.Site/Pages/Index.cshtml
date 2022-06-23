@@ -5,16 +5,34 @@
     Product[] products = Model.Products;
 }
 
-<div class="row">
-    <div class="col-8">
-        <div>
-            @foreach (Product product in products)
-            {
-                <img src="@product.Image" />
-            }
+<div class="d-flex flex-grow-1 flex-column h-100 overflow-hidden p-3">
+    <div class="d-flex flex-grow-1 flex-row h-100">
+        <div class="d-flex flex-grow-1 flex-column h-100 overflow-hidden me-3">
+            <div class="d-flex p-2 fs-1">Inventory</div>
+            <div id="products" class="h-100 overflow-auto">
+                <div class="d-flex flex-wrap justify-content-center">
+                    @foreach (Product product in products)
+                    {
+                        <div id="@product.ProductGuid" class="border rounded shadow-sm p-4 m-4" name="@product.Name"  price="@product.Price" category="@product.Category">
+                            <img width="164" height="164" src="@product.Image" />
+                            <div class="text-center fs-4">@product.Name</div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="d-flex flex-grow-1 flex-column h-100 overflow-hidden me-3 min-width-lg max-width-lg">
+            <div class="d-flex flex-grow-1 flex-column h-100 overflow-hidden mb-3">
+                <div class="d-flex flex-shrink-0 p-2 fs-1">Order</div>
+                <div id="order" class="h-100 overflow-auto">
+                   
+                </div>
+            </div>
+            <div class="d-grid">
+                <div class="btn btn-lg btn-primary fs-3 d-flex align-items-center justify-content-center">Check Out</div>
+            </div>
         </div>
     </div>
-    <div class="col-4">col-4</div>
 </div>
 
 @* Javascript *@
