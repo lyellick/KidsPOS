@@ -31,7 +31,7 @@
             <div class="d-grid">
                 <div class="btn btn-lg btn-primary py-4 fs-3 d-flex align-items-center justify-content-center">
                     <div>Check Out</div>
-                    <div id="total" class="ms-3"></div>
+                    <div id="total" class="ms-3">$0.00</div>
                 </div>
             </div>
         </div>
@@ -45,12 +45,30 @@
             product.addEventListener('click', function(event) {
                 var item = {
                     id: this.id,
-                    name: this.getAttribute("name"),
-                    price: parseFloat(this.getAttribute("price")),
-                    category: this.getAttribute("category")
+                    name: this.getAttribute('name'),
+                    price: parseFloat(this.getAttribute('price')),
+                    category: this.getAttribute('category')
                 };
-                console.log(item);
+                document.getElementById('order').insertAdjacentHTML('beforeend', `<div class="item d-flex justify-content-between fs-3 mb-3 px-3" product="${item.id}"><div>${item.name}</div><div price="${item.price}">$${item.price}</div></div>`);
+
+                updateTotal();
+
+                document.querySelectorAll(`.item`).forEach(function(item) {
+                    item.addEventListener('click', function(event) {
+                        this.remove();
+                        updateTotal();
+                    });
+                });
             });
         });
+
+        function updateTotal() {
+            var total = 0;
+            document.querySelectorAll(`.item`).forEach(function(item) {
+                var price = parseFloat(item.querySelector('[price]').getAttribute('price'));
+                total += price;
+            });
+            document.getElementById('total').innerHTML = `$${total.toFixed(2)}`;
+        }
     </script>
 }

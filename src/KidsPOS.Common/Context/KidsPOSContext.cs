@@ -128,7 +128,7 @@ namespace KidsPOS.Common.Context
                     Category = Categories.Fruit,
                     Price = 0.75,
                     Quantity = 0,
-                    Image = "https://www.dolenz.co.nz/uploads/cache/img/rc/UlbhALJo//uploads/media/5ad5653d97b82/fruit-heros-banana-new.png",
+                    Image = "https://www.acai.eu/acai/CustomUpload/374O357O340O370O356O369O350O320O322O320O328O/Bananenpueree-FineFruitsClub-500x500px.gif",
                     ProductGuid = Guid.NewGuid()
                 },
                 new Product()
