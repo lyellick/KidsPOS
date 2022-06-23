@@ -137,7 +137,7 @@ namespace KidsPOS.Common.Context
                     Name = "Grapes",
                     Description = "",
                     Category = Categories.Fruit,
-                    Price = 4.01,
+                    Price = 0.82,
                     Quantity = 0,
                     Image = "https://www.dole.com/-/media/project/dole/produce-images/fruit/grapes_web.png?rev=f0477eb188cb4f1ea07a564bb4da4e96&hash=C3D6FA59C04498E8F4BE377697436DAC",
                     ProductGuid = Guid.NewGuid()

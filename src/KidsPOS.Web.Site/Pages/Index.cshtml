@@ -13,9 +13,10 @@
                 <div class="d-flex flex-wrap justify-content-center">
                     @foreach (Product product in products)
                     {
-                        <div id="@product.ProductGuid" class="border rounded shadow-sm p-4 m-4" name="@product.Name"  price="@product.Price" category="@product.Category">
+                        <div id="@product.ProductGuid" class="product border rounded shadow p-4 m-4" name="@product.Name" price="@product.Price" category="@product.Category">
                             <img width="164" height="164" src="@product.Image" />
-                            <div class="text-center fs-4">@product.Name</div>
+                            <div class="text-center fs-4 fw-bold">@product.Name</div>
+                            <div class="text-center fs-4 fst-italic">$@product.Price</div>
                         </div>
                     }
                 </div>
@@ -25,11 +26,13 @@
             <div class="d-flex flex-grow-1 flex-column h-100 overflow-hidden mb-3">
                 <div class="d-flex flex-shrink-0 p-2 fs-1">Order</div>
                 <div id="order" class="h-100 overflow-auto">
-                   
                 </div>
             </div>
             <div class="d-grid">
-                <div class="btn btn-lg btn-primary fs-3 d-flex align-items-center justify-content-center">Check Out</div>
+                <div class="btn btn-lg btn-primary py-4 fs-3 d-flex align-items-center justify-content-center">
+                    <div>Check Out</div>
+                    <div id="total" class="ms-3"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -38,6 +41,16 @@
 @* Javascript *@
 @section PageScript {
     <script>
-
+        document.querySelectorAll('.product').forEach(function(product) {
+            product.addEventListener('click', function(event) {
+                var item = {
+                    id: this.id,
+                    name: this.getAttribute("name"),
+                    price: parseFloat(this.getAttribute("price")),
+                    category: this.getAttribute("category")
+                };
+                console.log(item);
+            });
+        });
     </script>
 }
