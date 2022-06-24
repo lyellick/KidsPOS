@@ -1,5 +1,4 @@
 using KidsPOS.Common.Context;
-using KidsPOS.Web.Site.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 
@@ -18,9 +17,7 @@ builder.Services
 
 builder.Services
         .AddDbContext<KidsPOSContext>(options => options.UseLazyLoadingProxies().UseSqlite(connectionString))
-        .AddOptions()
-        .AddSingleton(builder.Configuration)
-        .Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+        .AddSingleton(builder.Configuration);
 
 var app = builder.Build();
 
